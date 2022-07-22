@@ -1,0 +1,36 @@
+<?php
+foreach ($list_sanpham as $sp) {
+    extract($sp);
+    $ass = number_format($PRICE);
+    $pathimg = "\uploads\product-image.png" ;
+    if ($pathimg) {
+        $hinh = "<img src='" . $pathimg . "' height='100'>";
+    }
+    else {
+        echo " no photo";
+    }
+
+
+            echo " <div class='col'> 
+                <div class='imggg'>
+                    <a href=''>$hinh</a>
+                </div>
+                <div class='ctt'>
+                    <h4 class='text-[20px]'>
+                        $PRODUCT_NAME
+                    </h4>
+                    <div class='rating'>   
+                    </div>
+                    <p class=text-[16px]'>10 reviews</p>
+                    <span class='text-[#407CB4] text-[20px] font-[500]'>$ass</span> <span class='text-[#407CB4] text-[20px] font-[500]'đ</span>
+                </div>
+                <form action='?page=addtocart' method='post'>
+                <input type='hidden' name='id' value='$PRODUCT_ID'>
+                <input type='hidden' name='name_pro' value=' $PRODUCT_NAME'>
+                <input type='hidden' name='price' value='$PRICE'>
+                <input type='hidden' name='img' value=''>
+                <button type='submit' class='colsa' name='add_btn'>ADD TO CART</button>
+            </form>
+            </div>
+            ";
+}
